@@ -6,7 +6,9 @@
       restrict: 'A', // only activate on element attribute
       require: '?ngModel', // get a hold of NgModelController
       link: function (scope, element, attrs, ngModel) {
-        
+            
+        if (!ngModel) return; // do nothing if no ng-model
+
         Number.prototype.format = function (n, x) {
           var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
           return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
