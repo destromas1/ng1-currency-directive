@@ -13,7 +13,16 @@
         };
 
         function formatter() {
-          
+          if (element.val()) {
+            var value = element.val().replace(/,/g, '');
+
+            value = Number(value);
+            if (!isNaN(value) && value !== 0) {
+              value = value.format();
+              element.val(value);
+            } else
+              element.val("");
+          }
         }
         
         ngModel.$parsers.push(function (viewValue) {
