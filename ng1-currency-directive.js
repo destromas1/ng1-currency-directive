@@ -5,9 +5,16 @@
     return {
       restrict: 'A', // only activate on element attribute
       require: '?ngModel', // get a hold of NgModelController
-      link: function (scope, element, attrs, ngModel) {
-            
-       
+      link: function (scope, element, attrs, ngModel) { 
+        
+
+        element.bind('change', function (event) {
+          
+        });
+
+        element.bind('keydown', function (event) {
+          
+        });
       }
         
     }
